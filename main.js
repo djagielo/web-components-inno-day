@@ -17,10 +17,10 @@ class MyFirstComponent extends HTMLElement {
 * Custom and polite anchor that asks before redirection that gets angry red after 3 times
 */
 class CustomAnchor extends HTMLAnchorElement {
-    clicks = 0;
 
     constructor() {
         super();
+        this.clicks = 0;
     }
 
     connectedCallback() {
@@ -30,6 +30,10 @@ class CustomAnchor extends HTMLAnchorElement {
                 window.location.href = e.target.href; 
             } else {
                 this.clicks += 1;
+                if ( this.clicks >= 3) {
+                    this.style.fontSize = '32px';
+                    this.style.color = 'red';
+                }
             }
         });
     }
