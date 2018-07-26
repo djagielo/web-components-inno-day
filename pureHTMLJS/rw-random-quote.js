@@ -53,6 +53,7 @@ class RwRandomQuote extends HTMLElement {
         then(r => r.json()).
         then(j => {
             this._$quote.innerHTML = j[0].content;
+            this.dispatchEvent(new CustomEvent("quoteChanged"));
         });
     }
 

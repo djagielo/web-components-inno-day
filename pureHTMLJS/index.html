@@ -14,11 +14,13 @@
     <hr />
     
     <h2>Random quote</h2>
-    <dj-random-quote interval="5000"></dj-random-quote>
+    <dj-random-quote id="randomQuote" interval="5000"></dj-random-quote>
 
-    <hr />
-    <h2>Angular exported random quote</h2>
-    <ng-random-quote></ng-random-quote>
+    <script>
+        document.querySelector('#randomQuote').addEventListener("quoteChanged", () => {
+            console.log('Quote changed ' + new Date());
+        });
+    </script>
 
     <script src="main.js"></script>
     <script src="purejs-component.js"></script>

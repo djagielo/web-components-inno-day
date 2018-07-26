@@ -15,7 +15,7 @@ export class AppComponent {
     const randomQuoteElement = createCustomElement(RandomQuoteComponent, { injector: injector });
     customElements.define('ng-random-quote', randomQuoteElement);
     setTimeout(() => {
-      this.content = domSanitizer.bypassSecurityTrustHtml('<ng-random-quote></ng-random-quote>');
+      this.content = domSanitizer.bypassSecurityTrustHtml('<ng-random-quote interval="5000"></ng-random-quote>');
     }, 2000);
   }
 
