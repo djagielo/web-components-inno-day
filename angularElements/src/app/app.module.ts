@@ -4,7 +4,7 @@ import { NgModule, Injector } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RandomQuoteComponent } from './random-quote/random-quote.component';
 import { HttpClientModule } from '@angular/common/http';
-import { createCustomElement } from '@webcomponents/custom-elements';
+import { QouteService } from './qoute.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,12 +14,9 @@ import { createCustomElement } from '@webcomponents/custom-elements';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [QouteService],
+  bootstrap: [AppComponent],
+  entryComponents: [RandomQuoteComponent]
 })
 export class AppModule {
-  constructor(private injector: Injector) {
-    const ngRandomQuote = createCustomElement(RandomQuoteComponent, { injector });
-    customElements.define('ng-random-quote', ngRandomQuote);
-  }
 }
